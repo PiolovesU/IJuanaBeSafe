@@ -10,7 +10,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <!--tailwindcss file-->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../css/style.css">
 <!--Leaflet-->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 	      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -21,13 +21,13 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <!--jquery-->
-	<link rel="stylesheet" href="js/jquery-ui-1.13.2.custom/jquery-ui.min.css">
+	<link rel="stylesheet" href="../js/jquery-ui-1.13.2.custom/jquery-ui.min.css">
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-	<script src="js/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+	<script src="../js/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
 	<title>Document</title>
 </head>
-<body class="h-screen flex flex-col font-inter relative">
-<header class="py-4 px-6 flex w-full items-center justify-between shadow">
+<body class="min-h-screen max-h-screen h-screen flex flex-col font-inter relative">
+<header class="py-4 px-6 flex w-full items-center justify-between shadow z-20">
 	<div class="logo flex items-center gap-2">
 		<svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<rect width="40" height="40" rx="8" fill="#7F56D9"/>
@@ -76,11 +76,11 @@
 <!-- Navigation -->
 <div class="grid grid-cols-[12rem_1fr] h-full">
 <!-- Wrap in anchor tag to navigate through pages, yung li element-->
-	<aside class="h-full pt-2 shadow-[rgba(0,0,0,0.1)_2px_0_0_0]">
+	<aside class="h-full pt-2 shadow-[rgba(0,0,0,0.1)_2px_0_0_0] z-10">
 		<ul>
-			<li class="flex items-center p-4 gap-2 active-tab text-brand-600 w-full border-r-4 border-brand-600 hover:bg-slate-100 cursor-pointer">
+			<li class="flex items-center p-4 gap-2 active-tab w-full hover:bg-slate-100 cursor-pointer">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M9 22V12H15V22M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M9 22V12H15V22M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
 				Dashboard
 			</li>
@@ -91,9 +91,9 @@
 
 				Appointments
 			</li>
-			<li class="flex items-center p-4 gap-2 w-full hover:bg-slate-100 cursor-pointer">
+			<li class="flex items-center p-4 gap-2 w-full hover:bg-slate-100 text-brand-600 border-r-4 border-brand-600 cursor-pointer">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="#7F56D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
 
 				Chat
@@ -126,15 +126,104 @@
 	</aside>
 
 
-	<div class="flex items-center justify-center bg-gray-100 h-full w-full">
-		<h3 class="text-2xl">Dito kayo maglalagay</h3>
+	<div class="grid grid-cols-[0.4fr_1fr_0.4fr] bg-gray-100 h-full w-full">
+		<div class="h-full w-full bg-white p-4">
+			<div class="flex justify-between items-center mb-6">
+				<h3 class="text-xl">
+					Inbox
+				</h3>
+				<button type="button" class="bg-brand-600 rounded-lg h-max p-2 hover:bg-brand-700" id="open-msg">
+					<svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9.99984 4.16666V15.8333M4.1665 9.99999H15.8332" stroke="white" stroke-width="1.67"
+						      stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</button>
+			</div>
+
+			<div id="messages">
+				<!--users who messaged the user-->
+			</div>
+		</div>
+
+		<div class="grid grid-rows-[1fr_28rem_1fr] h-full">
+			<div class="bg-white p-4 flex items-center">
+				<p class="text-lg font-medium" id="user"></p>
+			</div>
+			<div id="scrollable" class="bg-brand-100 p-4 min-h-full max-h-full h-full overflow-y-scroll">
+			<!--message card-->
+				<div class="flex flex-col justify-end gap-4 min-h-full" id="msg-list">
+
+
+				</div>
+
+
+			</div>
+			<form id="send-message">
+				<div class="bg-white flex items-center justify-between h-full px-4 gap-4">
+					<input type="hidden" name="id" id="id">
+					<input type="text" name="message" id="message" class="px-4 py-2 border border-gray-400 rounded-lg w-full outline-none" placeholder="Type message">
+					<button type="submit" class="p-2 bg-brand-600 hover:bg-brand-700 rounded-lg">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g clip-path="url(#clip0_480_69)">
+								<path d="M18.3334 1.66663L9.16675 10.8333M18.3334 1.66663L12.5001 18.3333L9.16675 10.8333M18.3334 1.66663L1.66675 7.49996L9.16675 10.8333" stroke="white" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+							</g>
+							<defs>
+								<clipPath id="clip0_480_69">
+									<rect width="20" height="20" fill="white"/>
+								</clipPath>
+							</defs>
+						</svg>
+
+					</button>
+
+				</div>
+			</form>
+		</div>
+		<div class="bg-white h-full p-4 flex flex-col gap-4">
+			<div class="flex flex-col items-center w-full h-40 justify-center gap-4 border-b border-gray-400">
+				<div id="avatar" CLASS="rounded-full bg-gray-200 text-brand-600 font-medium w-max p-2 aspect-square flex items-center">
+					<p class="text-3xl" id="initials"></p>
+				</div>
+				<p class="text-lg font-medium" id="user-details"></p>
+			</div>
+			<div class="flex justify-between text-sm">
+				<p CLASS="font-medium">ID:</p>
+				<p CLASS="" id="user-id"></p>
+			</div>
+			<div class="flex justify-between text-sm">
+				<p CLASS="font-medium">Gender:</p>
+				<p CLASS="" id="user-gender"></p>
+			</div>
+			<div class="flex justify-between text-sm">
+				<p CLASS="font-medium">Birth date:</p>
+				<p CLASS="" id="user-bday"></p>
+			</div>
+		</div>
 	</div>
 
 
 </div>
+<!--New message-->
+<div id="message-modal" class="w-full h-full bg-brand-400 bg-opacity-40 hidden place-items-center absolute z-50">
+	<div class="bg-white p-8 w-2/5 max-h-96 rounded-xl">
+		<div class="header flex justify-between mb-6">
+			<h2 class="text-xl">New message</h2>
+			<button type="button" id="close-msg">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M18 5.99994L6 17.9999M6 5.99994L18 17.9999" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
+		</div>
+		<input type="text" name="search" id="search" class="border border-gray-500 px-4 py-2 w-full rounded-lg outline-none mb-4" placeholder="Search anything...">
+		<div id="users" class="overflow-y-auto">
+
+		</div>
+
+	</div>
+</div>
 
 <!--Notifications-->
-<div id="notification-modal" class="w-full h-full bg-brand-400 bg-opacity-40 hidden place-items-center absolute">
+<div id="notification-modal" class="w-full h-full bg-brand-400 bg-opacity-40 hidden place-items-center absolute z-50">
 	<div class="bg-white p-8 w-2/3 max-h-96 rounded-xl">
 		<div class="header flex justify-between mb-6">
 			<h2 class="text-xl">Notifications</h2>
@@ -176,7 +265,7 @@
 </div>
 
 <!--Create appointment modal-->
-<div id="appointment-modal" class="w-full h-full bg-brand-400 bg-opacity-40 hidden place-items-center absolute">
+<div id="appointment-modal" class="w-full h-full bg-brand-400 bg-opacity-40 hidden place-items-center absolute z-50">
 	<div class="bg-white p-8 w-2/3 rounded-xl">
 		<div class="header flex justify-between mb-6">
 			<h2 class="text-xl font-medium">Create an appointment</h2>
@@ -200,7 +289,7 @@
 					</div>
 					<div class="flex flex-col gap-1">
 						<label for="location" class="text-sm">Location</label>
-						<div id="map" class="w-full h-56 rounded-lg">
+						<div id="map" class="w-full h-56 rounded-lg map">
 
 						</div>
 						<button type="button" id="locate" class="w-max px-4 py-2 border border-gray-500 rounded-lg text-sm hover:bg-gray-100">Locate me</button>
@@ -248,8 +337,9 @@
 	</div>
 </div>
 
-<script src="js/calendar.js"></script>
-<script src="js/leaflet.js"></script>
-<script src="js/close_modal.js"></script>
+<script src="../js/calendar.js"></script>
+<!--<script src="../js/leaflet.js"></script>-->
+<script src="../js/close_modal.js"></script>
+<script src="../js/message.js"></script>
 </body>
 </html>
